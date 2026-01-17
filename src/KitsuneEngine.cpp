@@ -1,15 +1,23 @@
-#include <iostream>
+//
+// KasaiRaito, all right reserved.
+//
+
 #include "raylib.h"
+#include "Balls.h"
 
 int main() {
-    InitWindow(800, 450, "Raylib Hello");
+    InitWindow(800, 450, "Kitsune Engine");
     SetTargetFPS(60);
 
-    while (!WindowShouldClose())
-    {
+    Balls ball;
+
+    while (!WindowShouldClose()) {
+        float dt = GetFrameTime();
+        ball.Update(dt);
+
         BeginDrawing();
         ClearBackground(RAYWHITE);
-        DrawText("Hello, Raylib!", 190, 200, 20, DARKGRAY);
+        ball.Draw();
         EndDrawing();
     }
 
